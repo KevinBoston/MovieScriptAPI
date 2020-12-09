@@ -5,7 +5,7 @@ class CreateMovies < ActiveRecord::Migration[6.0]
       t.string :starring
       t.string :description
       t.string :link
-
+      t.integer :list_id
       t.timestamps
     end
   end

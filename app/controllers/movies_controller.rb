@@ -2,15 +2,17 @@ class MoviesController < ApplicationController
 
     def index
         movies = Movie.all
-        render json: movies, include: [:title, :starring, :description]
+        render json: MovieSerializer.new(movies)
     end
 
     def show
-        user = User.find_by(params[:id])
-        movies = user.movies
-        render json: movies, include: [:title, :starring, :description]
+        list = List.find_by(params[:id])
+        movies = list.movies
+        render json: MovieSerializer.new(movies)
     end
+
     
+
 
 
 end
