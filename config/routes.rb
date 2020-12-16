@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :movies
-  resources :lists
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    resources :lists, only: [:index, :create, :destroy]
+    resources :movies, only: [:index, :create]
+  end
 end
