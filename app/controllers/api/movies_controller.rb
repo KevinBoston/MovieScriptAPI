@@ -14,6 +14,12 @@ class Api::MoviesController < ApplicationController
         end
     end
 
+    def destroy
+        movie = Movie.find_by(id: params[:id])
+        movie.destroy 
+
+    end
+
     private
     def movie_params
         params.require(:movie).permit(:title, :starring, :description, :list_id, :url, :notes) 
